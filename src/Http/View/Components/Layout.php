@@ -5,6 +5,10 @@ namespace DesignByCode\Guardian\Http\View\Components;
 
 use Illuminate\View\Component;
 
+/**
+ * Class Layout
+ * @package DesignByCode\Guardian\Http\View\Components
+ */
 class Layout extends Component
 {
     /**

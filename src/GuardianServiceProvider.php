@@ -139,6 +139,9 @@ class GuardianServiceProvider extends ServiceProvider
         });
     }
 
+    /**
+     * @param $component
+     */
     protected function registerComponent($component)
     {
         Blade::component('guardian::components.' .  $component, self::GUARDIAN . '-' . $component);
@@ -152,7 +155,6 @@ class GuardianServiceProvider extends ServiceProvider
             ]);
         }
     }
-
 
     private function createAdminRoutes()
     {
