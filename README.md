@@ -37,12 +37,12 @@ All the configuration is all ready done by the installation command.
 ```
 
 ## Guardian Routes 
-| Method   | URL                     | Named Route             |   |
-|----------|-------------------------|-------------------------|---|
-| GET|HEAD | dashboard               | guardian.dashboard      |   |
-| DELETE   | guardian/delete-account | guardian.delete-account |   |
-| GET|HEAD | dashboard/profile       | guardian.profile        |   |
-|          |                         |                         |   |
+| Method   | URL                             | Named Route             |
+|----------|---------------------------------|-------------------------|
+| GET|HEAD | dashboard                       | guardian.dashboard      |
+| DELETE   | guardian/delete-account         | guardian.delete-account |
+| GET|HEAD | dashboard/profile               | guardian.profile        |
+
 
 
 ## Testing

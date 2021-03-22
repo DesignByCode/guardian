@@ -2,23 +2,19 @@
 
 namespace DesignByCode\Guardian;
 
-
 use DesignByCode\Guardian\Commands\GuardianCommand;
 use DesignByCode\Guardian\Http\Controllers\DashboardController;
 use DesignByCode\Guardian\Http\Controllers\DeleteAccountController;
 use DesignByCode\Guardian\Http\Controllers\ProfileController;
 use DesignByCode\Guardian\Http\View\Components\Layout;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
 use Laravel\Fortify\Fortify;
 
-
 class GuardianServiceProvider extends ServiceProvider
 {
-
     const NAME = 'guardian';
 
     public function register()
@@ -52,20 +48,19 @@ class GuardianServiceProvider extends ServiceProvider
      */
     protected function registerAllFortifyViews()
     {
-        Fortify::registerView(fn() =>  view('guardian::auth.register'));
+        Fortify::registerView(fn () => view('guardian::auth.register'));
 
-        Fortify::loginView(fn() => view('guardian::auth.login'));
+        Fortify::loginView(fn () => view('guardian::auth.login'));
 
-        Fortify::confirmPasswordView(fn() => view('guardian::auth.password-confirm'));
+        Fortify::confirmPasswordView(fn () => view('guardian::auth.password-confirm'));
 
-        Fortify::verifyEmailView(fn() => view('guardian::auth.verify-email'));
+        Fortify::verifyEmailView(fn () => view('guardian::auth.verify-email'));
 
-        Fortify::requestPasswordResetLinkView(fn() => view('guardian::auth.password-request'));
+        Fortify::requestPasswordResetLinkView(fn () => view('guardian::auth.password-request'));
 
-        Fortify::resetPasswordView(fn() => view('guardian::auth.password-reset'));
+        Fortify::resetPasswordView(fn () => view('guardian::auth.password-reset'));
 
-        Fortify::twoFactorChallengeView(fn() => view('guardian::auth.two-factor-challenge'));
-
+        Fortify::twoFactorChallengeView(fn () => view('guardian::auth.two-factor-challenge'));
     }
 
     /**
@@ -74,24 +69,22 @@ class GuardianServiceProvider extends ServiceProvider
     protected function publishCommands()
     {
         if ($this->app->runningInConsole()) {
-
             $this->publishes([
-                $this->root('resources/views') => resource_path('views/vendor/guardian')
+                $this->root('resources/views') => resource_path('views/vendor/guardian'),
             ], self::NAME . '-views');
 
             $this->publishes([
-                $this->root('database/migrations') => base_path('database/migrations')
+                $this->root('database/migrations') => base_path('database/migrations'),
             ], self::NAME . '-migrations');
 
             $this->publishes([
-                $this->root('config/guardian.php') => config_path('guardian.php')
+                $this->root('config/guardian.php') => config_path('guardian.php'),
             ], self::NAME . '-config');
 
             $this->publishes([
                 $this->root('public') => public_path('/'),
             ], self::NAME . '-styles');
         }
-
     }
 
     /**
@@ -105,8 +98,8 @@ class GuardianServiceProvider extends ServiceProvider
 
     protected function registerViewComponent()
     {
-        $this->loadViewComponentsAs( self::NAME, [
-            Layout::class
+        $this->loadViewComponentsAs(self::NAME, [
+            Layout::class,
         ]);
     }
 
@@ -129,15 +122,14 @@ class GuardianServiceProvider extends ServiceProvider
             'form-verify-email',
             'sidebar-nav',
             'sidebar-nav-button',
-            'top-nav'
+            'top-nav',
         ];
 
-        $this->callAfterResolving(BladeCompiler::class, function() use ($components) {
+        $this->callAfterResolving(BladeCompiler::class, function () use ($components) {
             foreach ($components as $component) {
                 $this->registerComponent($component);
             }
         });
-
     }
 
     protected function registerComponent($component)
@@ -156,12 +148,12 @@ class GuardianServiceProvider extends ServiceProvider
 
     private function createAdminRoutes()
     {
-        Route::macro(self::NAME, function(string $prefix = 'dashboard') {
+        Route::macro(self::NAME, function (string $prefix = 'dashboard') {
             Route::group([
                 'prefix' => $prefix,
                 'as' => 'guardian.',
-                'middleware' => array_filter(array_merge(['web', 'auth'], config('guardian.middleware')))
-            ], function() {
+                'middleware' => array_filter(array_merge(['web', 'auth'], config('guardian.middleware'))),
+            ], function () {
                 Route::get('/', DashboardController::class)
                     ->name('dashboard');
 
@@ -171,10 +163,6 @@ class GuardianServiceProvider extends ServiceProvider
                 Route::delete('delete-account', DeleteAccountController::class)
                     ->name('delete-account');
             });
-
-
         });
     }
-
-
 }

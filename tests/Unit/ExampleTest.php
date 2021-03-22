@@ -6,6 +6,4 @@ use DesignByCode\Guardian\Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
-
-
 }

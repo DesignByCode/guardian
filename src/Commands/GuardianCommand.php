@@ -5,7 +5,6 @@ namespace DesignByCode\Guardian\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 
-
 class GuardianCommand extends Command
 {
     public $signature = 'guardian:install';
@@ -18,11 +17,10 @@ class GuardianCommand extends Command
         $this->line('Guardian will now start fortifying your application');
 
         $this->withProgressBar(7, function ($bar) {
-
             $bar->start();
-             $this->callSilent('vendor:publish', [
+            $this->callSilent('vendor:publish', [
                 '--tag' => 'guardian-config',
-                '--force' => true
+                '--force' => true,
             ]);
 
             $bar->advance();
@@ -30,7 +28,7 @@ class GuardianCommand extends Command
 
             $this->callSilent('vendor:publish', [
                 '--provider' => 'Laravel\Fortify\FortifyServiceProvider',
-                '--force' => true
+                '--force' => true,
             ]);
 
             $bar->advance();
@@ -38,7 +36,7 @@ class GuardianCommand extends Command
 
             $this->callSilent('vendor:publish', [
                 '--provider' => 'Laravel\Fortify\FortifyServiceProvider',
-                '--force' => true
+                '--force' => true,
             ]);
 
             $bar->advance();

@@ -3,10 +3,8 @@
 
 namespace DesignByCode\Guardian\Http\Controllers;
 
-
 class DeleteAccountController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware(['auth', 'password.confirm']);
@@ -18,5 +16,4 @@ class DeleteAccountController extends Controller
 
         return redirect()->to('/');
     }
-
 }
