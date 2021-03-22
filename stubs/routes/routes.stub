@@ -1,0 +1,5 @@
+/*
+ * @params string $prefix
+ * @return Guardian $routes
+*/
+Route::guardian();

@@ -1,0 +1,61 @@
+{
+    "name": "designbycode/guardian",
+    "description": "Laravel authentication with Fortify",
+    "keywords": [
+        "designbycode",
+        "guardian"
+    ],
+    "homepage": "https://github.com/designbycode/guardian",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Claude Myburgh",
+            "email": "claude@designbycode.co.za",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/contracts": "^7.0|^8.0",
+        "jenssegers/agent": "^2.6",
+        "laravel/fortify": "^1.7",
+        "league/commonmark": "^1.5"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.13",
+        "phpunit/phpunit": "^8.5.8|^9.3",
+        "spatie/laravel-ray": "^1.9",
+        "vimeo/psalm": "^4.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "DesignByCode\\Guardian\\": "src",
+            "DesignByCode\\Guardian\\Database\\Factories\\": "database/factories"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DesignByCode\\Guardian\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "psalm": "vendor/bin/psalm",
+        "test": "vendor/bin/phpunit --colors=always",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DesignByCode\\Guardian\\GuardianServiceProvider"
+            ],
+            "aliases": {
+                "Guardian": "DesignByCode\\Guardian\\GuardianFacade"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
