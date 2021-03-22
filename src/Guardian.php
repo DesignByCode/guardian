@@ -4,7 +4,7 @@ namespace DesignByCode\Guardian;
 
 class Guardian
 {
-     const STATUS_CODES = [
+    const STATUS_CODES = [
         'profile-information-updated' => [
             'type' => 'success',
             'message' => 'Profile successfully updated.',

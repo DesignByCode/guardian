@@ -3,7 +3,6 @@
 
 namespace DesignByCode\Guardian\Http\Controllers;
 
-
 class DashboardController extends Controller
 {
     /**
@@ -13,5 +12,4 @@ class DashboardController extends Controller
     {
         return view('guardian::pages.dashboard');
     }
-
 }

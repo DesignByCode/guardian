@@ -2,9 +2,9 @@
 
 namespace DesignByCode\Guardian\Tests;
 
+use DesignByCode\Guardian\GuardianServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use DesignByCode\Guardian\GuardianServiceProvider;
 
 abstract class TestCase extends Orchestra
 {

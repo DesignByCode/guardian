@@ -3,12 +3,10 @@
 
 namespace DesignByCode\Guardian\Http\View\Components;
 
-
 use Illuminate\View\Component;
 
 class Alert extends Component
 {
-
     public $type;
 
     /**
@@ -22,6 +20,6 @@ class Alert extends Component
 
     public function render()
     {
-        return view ('guardian::components.alert');
+        return view('guardian::components.alert');
     }
 }

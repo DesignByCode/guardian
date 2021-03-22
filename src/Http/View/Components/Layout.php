@@ -3,21 +3,17 @@
 
 namespace DesignByCode\Guardian\Http\View\Components;
 
-
-use Illuminate\Support\Facades\Config;
 use Illuminate\View\Component;
 
 class Layout extends Component
 {
-
     protected $lookup = [
         'auth' => 'guardian::layouts.auth',
-        'dashboard' => 'guardian::layouts.dashboard'
+        'dashboard' => 'guardian::layouts.dashboard',
     ];
     public string $type;
 
     public string $title;
-
 
     /**
      * Layout constructor.
@@ -30,10 +26,8 @@ class Layout extends Component
         $this->title = $title;
     }
 
-
     public function render()
     {
         return view($this->lookup[$this->type]);
     }
-
 }
