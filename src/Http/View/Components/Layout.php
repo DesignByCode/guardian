@@ -7,10 +7,14 @@ use Illuminate\View\Component;
 
 class Layout extends Component
 {
-    protected $lookup = [
+    /**
+     * @var array|string[]
+     */
+    protected array $lookup = [
         'auth' => 'guardian::layouts.auth',
         'dashboard' => 'guardian::layouts.dashboard',
     ];
+
     public string $type;
 
     public string $title;
@@ -26,6 +30,11 @@ class Layout extends Component
         $this->title = $title;
     }
 
+    /**
+     * Get the view / view contents that represent the component.
+     *
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\Support\Htmlable|\Closure|string
+     */
     public function render()
     {
         return view($this->lookup[$this->type]);

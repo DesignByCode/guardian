@@ -6,6 +6,10 @@ use DesignByCode\Guardian\GuardianServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
 
+/**
+ * Class TestCase
+ * @package DesignByCode\Guardian\Tests
+ */
 abstract class TestCase extends Orchestra
 {
     public function setUp(): void
@@ -17,13 +21,20 @@ abstract class TestCase extends Orchestra
         );
     }
 
-    protected function getPackageProviders($app)
+    /**
+     * @param \Illuminate\Foundation\Application $app
+     * @return string[]
+     */
+    protected function getPackageProviders($app): array
     {
         return [
             GuardianServiceProvider::class,
         ];
     }
 
+    /**
+     * @param \Illuminate\Foundation\Application $app
+     */
     public function getEnvironmentSetUp($app)
     {
         $app['config']->set('database.default', 'sqlite');

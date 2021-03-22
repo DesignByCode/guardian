@@ -13,13 +13,17 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
 use Laravel\Fortify\Fortify;
 
+/**
+ * Class GuardianServiceProvider
+ * @package DesignByCode\Guardian
+ */
 class GuardianServiceProvider extends ServiceProvider
 {
-    const NAME = 'guardian';
+    const GUARDIAN = 'guardian';
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/guardian.php', self::NAME);
+        $this->mergeConfigFrom(__DIR__ . '/../config/guardian.php', self::GUARDIAN);
     }
 
     public function boot()
@@ -40,7 +44,7 @@ class GuardianServiceProvider extends ServiceProvider
      */
     protected function loadViews()
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', self::NAME);
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', self::GUARDIAN);
     }
 
     /**
@@ -71,19 +75,19 @@ class GuardianServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 $this->root('resources/views') => resource_path('views/vendor/guardian'),
-            ], self::NAME . '-views');
+            ], self::GUARDIAN . '-views');
 
             $this->publishes([
                 $this->root('database/migrations') => base_path('database/migrations'),
-            ], self::NAME . '-migrations');
+            ], self::GUARDIAN . '-migrations');
 
             $this->publishes([
                 $this->root('config/guardian.php') => config_path('guardian.php'),
-            ], self::NAME . '-config');
+            ], self::GUARDIAN . '-config');
 
             $this->publishes([
                 $this->root('public') => public_path('/'),
-            ], self::NAME . '-styles');
+            ], self::GUARDIAN . '-styles');
         }
     }
 
@@ -96,9 +100,12 @@ class GuardianServiceProvider extends ServiceProvider
         return __DIR__ . '/../' . $string;
     }
 
+    /**
+     * Load View Components
+     */
     protected function registerViewComponent()
     {
-        $this->loadViewComponentsAs(self::NAME, [
+        $this->loadViewComponentsAs(self::GUARDIAN, [
             Layout::class,
         ]);
     }
@@ -134,7 +141,7 @@ class GuardianServiceProvider extends ServiceProvider
 
     protected function registerComponent($component)
     {
-        Blade::component('guardian::components.' .  $component, self::NAME . '-' . $component);
+        Blade::component('guardian::components.' .  $component, self::GUARDIAN . '-' . $component);
     }
 
     private function registerCommand()
@@ -146,9 +153,10 @@ class GuardianServiceProvider extends ServiceProvider
         }
     }
 
+
     private function createAdminRoutes()
     {
-        Route::macro(self::NAME, function (string $prefix = 'dashboard') {
+        Route::macro(self::GUARDIAN, function (string $prefix = 'dashboard') {
             Route::group([
                 'prefix' => $prefix,
                 'as' => 'guardian.',
