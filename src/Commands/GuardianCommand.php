@@ -23,16 +23,10 @@ class GuardianCommand extends Command
                 '--force' => true,
             ]);
 
-            $bar->advance();
-            sleep(1);
-
             $this->callSilent('vendor:publish', [
                 '--provider' => 'Laravel\Fortify\FortifyServiceProvider',
                 '--force' => true,
             ]);
-
-            $bar->advance();
-            sleep(1);
 
             $this->callSilent('vendor:publish', [
                 '--provider' => 'Laravel\Fortify\FortifyServiceProvider',
@@ -47,10 +41,17 @@ class GuardianCommand extends Command
             $bar->advance();
             sleep(1);
 
-            if (file_exists(resource_path('views/welcome.blade.php'))) {
-                $this->replaceInFile('/home', '/dashboard', resource_path('views/welcome.blade.php'));
-                $this->replaceInFile('Home', 'Dashboard', resource_path('views/welcome.blade.php'));
+            copy(__DIR__.'/../../stubs/app/Http/Models/User.php', app_path('Models/User.php'));
+
+            if (file_exists($filepath = config_path('fortify.php'))) {
+                $this->replaceInFile('// Features::emailVerification(),', 'Features::emailVerification(),', $filepath);
             }
+
+            if (file_exists($welcomePath = resource_path('views/welcome.blade.php'))) {
+                $this->replaceInFile('/home', '/dashboard', $welcomePath);
+                $this->replaceInFile('Home', 'Dashboard', $welcomePath);
+            }
+
             $bar->advance();
             sleep(1);
 
@@ -77,7 +78,6 @@ class GuardianCommand extends Command
 
         $this->line("");
         $this->comment('All done');
-        $this->line('Enable email verification features in fortify-config and implement MustVerifyEmail on User Model');
     }
 
     /**
