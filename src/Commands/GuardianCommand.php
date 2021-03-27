@@ -18,6 +18,7 @@ class GuardianCommand extends Command
 
         $this->withProgressBar(7, function ($bar) {
             $bar->start();
+
             $this->callSilent('vendor:publish', [
                 '--tag' => 'guardian-config',
                 '--force' => true,

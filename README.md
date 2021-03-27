@@ -22,16 +22,10 @@ You can publish and run the migrations with:
 php artisan guardian:install
 ```
 
-You can publish the config file with:
-```bash
-php artisan vendor:publish --provider="DesignByCode\Guardian\GuardianServiceProvider" --tag="guardian-config"
-```
-
 
 ## Usage
 All the configuration is all ready done by the installation command.
 ```php
-
 
 
 ```
@@ -39,9 +33,11 @@ All the configuration is all ready done by the installation command.
 ## Guardian Routes 
 | Method   | URL                             | Named Route                  |
 |----------|---------------------------------|------------------------------|
-| GET|HEAD | dashboard                       | guardian.dashboard           |
-| GET|HEAD | dashboard/profile               | guardian.profile             |
+| GET      | dashboard                       | guardian.dashboard           |
+| GET      | dashboard/profile               | guardian.profile             |
 | DELETE   | guardian/delete-account         | guardian.delete-account      |
+
+
 
 
 
