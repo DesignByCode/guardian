@@ -35,6 +35,7 @@ return [
                 'rounded' => false,
                 'bold' => true
             ]
+        ],
         'gravatar' => [
             'query-string' =>  [
                 'd' => 'mp',
