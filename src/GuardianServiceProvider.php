@@ -5,6 +5,7 @@ namespace DesignByCode\Guardian;
 use DesignByCode\Guardian\Commands\GuardianCommand;
 use DesignByCode\Guardian\Http\Controllers\DashboardController;
 use DesignByCode\Guardian\Http\Controllers\DeleteAccountController;
+use DesignByCode\Guardian\Http\Controllers\MarkdownController;
 use DesignByCode\Guardian\Http\Controllers\ProfileController;
 use DesignByCode\Guardian\Http\View\Components\Layout;
 use Illuminate\Support\Facades\Blade;
@@ -172,6 +173,13 @@ class GuardianServiceProvider extends ServiceProvider
 
                 Route::delete('delete-account', DeleteAccountController::class)
                     ->name('delete-account');
+
+
+                Route::get('/markdown', [MarkdownController::class, 'index'])
+                    ->name('markdown.index');
+
+                Route::get('/markdown/{file}', [MarkdownController::class, 'show'])
+                    ->name('markdown.show');
             });
         });
     }

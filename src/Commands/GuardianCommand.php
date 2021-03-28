@@ -48,7 +48,7 @@ class GuardianCommand extends Command
             $bar->advance();
             sleep(1);
 
-            copy(__DIR__.'/../../stubs/app/Http/Models/User.php', app_path('Models/User.php'));
+            copy(__DIR__.'/../../stubs/app/Models/User.php', app_path('Models/User.php'));
 
             if (file_exists($filepath = config_path('fortify.php'))) {
                 $this->replaceInFile('// Features::emailVerification(),', 'Features::emailVerification(),', $filepath);

@@ -15,6 +15,7 @@
     "dependencies": {
         "alpinejs": "^2.8.1",
         "frappe-charts": "^1.5.8",
+        "github-markdown-css": "^4.0.0",
         "hoodoo-sass": "^0.2.5",
         "laravel-mix": "^6.0.13",
         "prop-types": "^15.7.2",

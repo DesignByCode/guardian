@@ -27,7 +27,7 @@ return [
      | use gravatar globally using `$user->avatar`
      */
     'avatar' => [
-        'type' => 'ui-avatar',
+        'type' => 'gravatar',
         'size' => 100,
         'ui-avatar' => [
             'query-string' => [
@@ -69,6 +69,7 @@ return [
     | Add additional sessions for sentinel backend.
     |
     */
-    'status' => \DesignByCode\Guardian\Guardian::STATUS_CODES
+    'status' => \DesignByCode\Guardian\Guardian::STATUS_CODES,
+
 
 ];
