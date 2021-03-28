@@ -5,7 +5,7 @@ contact_links:
       about: Ask the community for help
     - name: Request a feature
       url: https://github.com/designbycode/guardian/discussions/new?category=ideas
-      about: Share ideas for new features
+      about: Share ideas for new features for Guardian
     - name: Report a bug
       url: https://github.com/designbycode/guardian/issues/new
       about: Report a reproducable bug
