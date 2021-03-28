@@ -1,4 +1,4 @@
-<x-guardian-layout>
+<x-guardian-layout title="Register Account">
     <h1 class="mt-0">Register Page</h1>
     <x-guardian-form-register></x-guardian-form-register>
 

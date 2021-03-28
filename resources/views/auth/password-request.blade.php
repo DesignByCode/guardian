@@ -1,4 +1,4 @@
-<x-guardian-layout>
+<x-guardian-layout title="Password Forgot">
     <h1 class="mt-0">Forgot Password</h1>
     <x-guardian-form-password-request></x-guardian-form-password-request>
     <x-slot name="content">
