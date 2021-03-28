@@ -9,7 +9,6 @@
     <script src="{{ asset('js/guardian.js') }}"></script>
 </head>
 <body class="guardian__auth">
-
     <x-guardian-fixed-flash></x-guardian-fixed-flash>
     <div class="wrapper">
         <div class="row flex flex--align-center">
@@ -21,6 +20,5 @@
             </div>
         </div>
     </div>
-
 </body>
 </html>

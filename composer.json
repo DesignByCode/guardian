@@ -36,7 +36,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "DesignByCode\\Guardian\\Tests\\": "tests"
+            "DesignByCode\\Guardian\\Tests\\": "tests",
+            "App\\": "stubs/app"
         }
     },
     "scripts": {

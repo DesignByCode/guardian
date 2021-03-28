@@ -2,8 +2,10 @@
 
 namespace DesignByCode\Guardian\Tests;
 
+use App\Models\User;
 use DesignByCode\Guardian\GuardianServiceProvider;
-use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 /**
@@ -16,9 +18,27 @@ abstract class TestCase extends Orchestra
     {
         parent::setUp();
 
-        Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'DesignByCode\\Guardian\\Database\\Factories\\'.class_basename($modelName).'Factory'
-        );
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->timestamps();
+        });
+
+
+        User::create([
+           'name' => 'Claude',
+           'email' => 'claude@degisnbycode.co.za',
+           'password' => bcrypt('password'),
+        ]);
+    }
+
+    protected function tearDown(): void
+    {
+        Schema::drop('users');
     }
 
     /**
@@ -37,16 +57,13 @@ abstract class TestCase extends Orchestra
      */
     public function getEnvironmentSetUp($app)
     {
-        $app['config']->set('database.default', 'sqlite');
-        $app['config']->set('database.connections.sqlite', [
+        $app['config']->set('database.default', 'testbench');
+        $app['config']->set('database.connections.testbench', [
             'driver' => 'sqlite',
             'database' => ':memory:',
             'prefix' => '',
         ]);
 
-        /*
-        include_once __DIR__.'/../database/migrations/create_guardian_table.php.stub';
-        (new \CreatePackageTable())->up();
-        */
+        $app['config']->set('guardian.avatar.type', 'gravatar');
     }
 }

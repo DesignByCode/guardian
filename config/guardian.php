@@ -13,6 +13,35 @@ return [
     */
     'middleware' => ['verified'],
 
+    /*
+     |--------------------------------------------------------------------------
+     | Add default avatar types
+     |--------------------------------------------------------------------------
+     |
+     | Available type is 'ui-avatar' or 'gravatar'.
+     | All configuration can be added to the query-string array except for the size property
+     | which is globally added to all avatars types.
+     | Gravatar docs: https://en.gravatar.com/site/implement/images
+     | UI Avatars docs: https://ui-avatars.com/
+     | if type is set to gravatar it disable the upload avatar section in dashboard/profile
+     | use gravatar globally using `$user->avatar`
+     */
+    'avatar' => [
+        'type' => 'ui-avatar',
+        'size' => 100,
+        'ui-avatar' => [
+            'query-string' => [
+                'background' => 'random',
+                'rounded' => false,
+                'bold' => true
+            ]
+        'gravatar' => [
+            'query-string' =>  [
+                'd' => 'mp',
+                'r', 'pg'
+            ]
+        ],
+    ] ,
 
     /*
     |--------------------------------------------------------------------------
@@ -22,7 +51,6 @@ return [
     | Add or remove feature in admin section
     |
     */
-
     'features' => [
         'enable-profile-update' => true,
         'enable-avatar-upload' => true,
@@ -40,7 +68,6 @@ return [
     | Add additional sessions for sentinel backend.
     |
     */
-
     'status' => \DesignByCode\Guardian\Guardian::STATUS_CODES
 
 ];
