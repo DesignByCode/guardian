@@ -13,3 +13,6 @@ All notable changes to `guardian` will be documented in this file.
 
 ## 1.0.2 - 2021-28-03 
 - Resolve #1 - added titles to auth view templates 
+
+## 1.1.0 - 2021-28-03 
+- Added support for gravatar and ui-avatars
