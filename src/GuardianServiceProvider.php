@@ -3,6 +3,7 @@
 namespace DesignByCode\Guardian;
 
 use DesignByCode\Guardian\Commands\GuardianCommand;
+use DesignByCode\Guardian\Http\Controllers\AvatarController;
 use DesignByCode\Guardian\Http\Controllers\DashboardController;
 use DesignByCode\Guardian\Http\Controllers\DeleteAccountController;
 use DesignByCode\Guardian\Http\Controllers\MarkdownController;
@@ -116,8 +117,9 @@ class GuardianServiceProvider extends ServiceProvider
         $components = [
             'alert',
             'avatar',
-            'form-delete-account',
             'fixed-flash',
+            'form-avatar-upload',
+            'form-delete-account',
             'form-register',
             'form-login',
             'form-two-factor',
@@ -174,12 +176,17 @@ class GuardianServiceProvider extends ServiceProvider
                 Route::delete('delete-account', DeleteAccountController::class)
                     ->name('delete-account');
 
+                Route::post('avatar-upload', [AvatarController::class, 'store'])
+                    ->name('avatar.store');
 
-                Route::get('/markdown', [MarkdownController::class, 'index'])
-                    ->name('markdown.index');
+                Route::delete('avatar-delete', [AvatarController::class, 'destroy'])
+                    ->name('avatar.destroy');
 
-                Route::get('/markdown/{file}', [MarkdownController::class, 'show'])
-                    ->name('markdown.show');
+//                Route::get('/markdown', [MarkdownController::class, 'index'])
+//                    ->name('markdown.index');
+//
+//                Route::get('/markdown/{file}', [MarkdownController::class, 'show'])
+//                    ->name('markdown.show');
             });
         });
     }

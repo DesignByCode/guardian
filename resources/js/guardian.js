@@ -15,5 +15,29 @@ if(charts) {
 //     ReactDOM.render(<App/>, app)
 // }
 
-
 require('alpinejs')
+
+
+
+
+
+const previewInput = document.getElementById('avatar-input')
+
+let previewBlock = document.getElementById('imagePreview')
+
+function previewAvatar(e) {
+
+    previewBlock.style.display = 'block'
+    previewBlock.src = URL.createObjectURL(e.target.files[0])
+}
+
+previewInput.addEventListener('change', previewAvatar)
+
+
+
+
+
+
+
+
+

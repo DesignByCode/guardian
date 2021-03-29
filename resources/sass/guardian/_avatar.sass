@@ -6,5 +6,29 @@
         width: 100%
         flex-wrap: nowrap
 
+    &__group
+        position: relative
+        &:hover
+            & .avatar__delete
+                display: block
+
     &__email
         font-size: 12px
+
+    &__delete
+        display: none
+        top: -10px
+        right: 0
+        position: absolute
+        height: 20px
+        width: 20px
+
+        &__icon
+            color: var(--danger-color)
+            height: 20px
+            width: 20px
+
+    &__upload__preview
+        display: none
+        max-width: 250px
+

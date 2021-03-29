@@ -1,7 +1,7 @@
 <nav class="sidebar-nav pt-7">
     <div class="sidebar--sticky">
         <div class="top">
-            <x-guardian-avatar :user="auth()->user()"></x-guardian-avatar>
+            <x-guardian-avatar :user="auth()->user()" delete></x-guardian-avatar>
 
             <ul class="nav-links m-4">
                 <x-guardian-sidebar-nav-button href="{{ route('guardian.dashboard') }}">
@@ -39,12 +39,12 @@
                     Profile
                 </x-guardian-sidebar-nav-button>
 
-                <x-guardian-sidebar-nav-button  href="{{ route('guardian.markdown.index') }}" >
-                    <x-slot name="icon">
-                        <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z" clip-rule="evenodd"></path><path d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"></path></svg>
-                    </x-slot>
-                    Markdowns
-                </x-guardian-sidebar-nav-button>
+{{--                <x-guardian-sidebar-nav-button  href="{{ route('guardian.markdown.index') }}" >--}}
+{{--                    <x-slot name="icon">--}}
+{{--                        <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z" clip-rule="evenodd"></path><path d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"></path></svg>--}}
+{{--                    </x-slot>--}}
+{{--                    Markdowns--}}
+{{--                </x-guardian-sidebar-nav-button>--}}
 
                 {{ $slot }}
             </ul>

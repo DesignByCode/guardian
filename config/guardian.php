@@ -1,5 +1,6 @@
 <?php
 
+
 return [
 
     /*
@@ -27,22 +28,42 @@ return [
      | use gravatar globally using `$user->avatar`
      */
     'avatar' => [
-        'type' => 'gravatar',
+        'type' => 'ui-avatar',
         'size' => 100,
         'ui-avatar' => [
             'query-string' => [
                 'background' => 'random',
                 'rounded' => false,
-                'bold' => true
-            ]
+                'bold' => true,
+            ],
         ],
         'gravatar' => [
-            'query-string' =>  [
+            'query-string' => [
                 'd' => 'mp',
-                'r', 'pg'
-            ]
+                'r', 'pg',
+            ],
         ],
     ] ,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Avatar Media Conversion size
+    |--------------------------------------------------------------------------
+    |
+    | Add or remove feature in admin section
+    |
+    */
+
+    "avatar-media" => [
+        "thumb" => [
+            "width" => 100,
+            "height" => 100,
+        ],
+        "small" => [
+            "width" => 40,
+            "height" => 40,
+        ],
+    ],
 
     /*
     |--------------------------------------------------------------------------

@@ -1988,6 +1988,16 @@ if (charts) {
 
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 
+var previewInput = document.getElementById('avatar-input');
+var previewBlock = document.getElementById('imagePreview');
+
+function previewAvatar(e) {
+  previewBlock.style.display = 'block';
+  previewBlock.src = URL.createObjectURL(e.target.files[0]);
+}
+
+previewInput.addEventListener('change', previewAvatar);
+
 /***/ }),
 
 /***/ "./resources/react/Charts.js":

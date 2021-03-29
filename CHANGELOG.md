@@ -2,6 +2,13 @@
 
 All notable changes to `guardian` will be documented in this file.
 
+## 1.2.0 - 2021-29-03
+- upload avatar using [stapie/laravel-medialibrary](https://github.com/spatie/laravel-medialibrary)
+- Update User model to work with media library.  
+- updated config file
+- rename AvatarTrait to Avatar
+- updated the ```guardian:install``` command handle zero configuration setup.
+
 ## 1.1.0 - 2021-28-03 
 - Added support for gravatar and ui-avatars
 

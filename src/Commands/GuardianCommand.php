@@ -36,9 +36,11 @@ class GuardianCommand extends Command
             ]);
 
             $this->callSilent('vendor:publish', [
-                '--provider' => 'Laravel\Fortify\FortifyServiceProvider',
+                '--provider' => 'Spatie\MediaLibrary\MediaLibraryServiceProvider',
                 '--force' => true,
             ]);
+
+            $this->callSilent('storage:link');
 
             $bar->advance();
             sleep(1);
@@ -77,7 +79,6 @@ class GuardianCommand extends Command
                 file_get_contents(__DIR__.'/../../stubs/routes/routes.stub'),
                 FILE_APPEND
             );
-
 
             $bar->finish();
         });

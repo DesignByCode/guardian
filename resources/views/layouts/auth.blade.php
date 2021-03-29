@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ isset($title) ? $title . ' - ' .  config('app.name') : config('app.name') }}</title>
     <link rel="stylesheet" href="{{ asset('css/guardian.css') }}">
-    <script src="{{ asset('js/guardian.js') }}"></script>
+    <script src="{{ asset('js/guardian.js') }}" defer></script>
 </head>
 <body class="guardian__auth">
     <x-guardian-fixed-flash></x-guardian-fixed-flash>

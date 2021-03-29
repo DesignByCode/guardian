@@ -3,7 +3,7 @@
         <div class="row">
             <div class="md-col-12">
                 <h1 class="m-0">Profile</h1>
-                <x-guardian-avatar :user="auth()->user()" size="100"></x-guardian-avatar>
+                <x-guardian-avatar  :user="auth()->user()" size="100"></x-guardian-avatar>
             </div>
         </div>
         @if( config('guardian.features.enable-profile-update'))
@@ -18,6 +18,24 @@
                     <div class="panel">
                         <div class="p-5">
                             <x-guardian-form-update-user></x-guardian-form-update-user>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="divider my-6"></div>
+        @endif
+        @if( config('guardian.features.enable-profile-update'))
+            <div class="row">
+                <div class="lg-col-6">
+                    <h2>Upload Avatar</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci asperiores commodi consequatur.
+                    </p>
+                </div>
+                <div class="lg-col-6">
+                    <div class="panel">
+                        <div class="p-5">
+                            <x-guardian-form-avatar-upload></x-guardian-form-avatar-upload>
                         </div>
                     </div>
                 </div>

@@ -3,8 +3,13 @@
 
 namespace DesignByCode\Guardian\Http\Traits;
 
-trait AvatarTrait
+use Spatie\Image\Manipulations;
+use Spatie\MediaLibrary\InteractsWithMedia;
+
+trait Avatar
 {
+    use InteractsWithMedia;
+
     /**
      * @param int $size
      * @return string
@@ -48,7 +53,7 @@ trait AvatarTrait
     public function avatar(): string
     {
         $lookup = [
-            'ui-avatar' => $this->uiAvatar(config('guardian.avatar.size')),
+            'ui-avatar' => $this->getFirstMediaUrl('avatar', 'small') ?: $this->uiAvatar(config('guardian.avatar.size')),
             'gravatar' => $this->gravatar(config('guardian.avatar.size')),
         ];
 
@@ -61,5 +66,30 @@ trait AvatarTrait
     public function getAvatarAttribute(): string
     {
         return $this->avatar();
+    }
+
+    /**
+     * @return bool
+     */
+    public function haveAvatar(): bool
+    {
+        return $this->getFirstMediaUrl('avatar') ? true : false;
+    }
+
+    public function registerAllMediaConversions(): void
+    {
+        foreach (config('guardian.avatar-media') as $key => $value) {
+            $this->addMediaConversion($key)
+                ->crop(Manipulations::CROP_CENTER, $value['width'], $value['height'])
+                ->optimize()
+                ->width($value['width'])
+                ->height($value['height']);
+        }
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('avatar')
+            ->singleFile();
     }
 }

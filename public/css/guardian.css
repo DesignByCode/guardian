@@ -11912,8 +11912,31 @@ h1 {
   width: 100%;
   flex-wrap: nowrap;
 }
+.avatar__group {
+  position: relative;
+}
+.avatar__group:hover .avatar__delete {
+  display: block;
+}
 .avatar__email {
   font-size: 12px;
+}
+.avatar__delete {
+  display: none;
+  top: -10px;
+  right: 0;
+  position: absolute;
+  height: 20px;
+  width: 20px;
+}
+.avatar__delete__icon {
+  color: var(--danger-color);
+  height: 20px;
+  width: 20px;
+}
+.avatar__upload__preview {
+  display: none;
+  max-width: 250px;
 }
 
 .view-more {
