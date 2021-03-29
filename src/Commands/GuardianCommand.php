@@ -16,17 +16,20 @@ class GuardianCommand extends Command
         $this->comment('Ready...');
         $this->line('Guardian will now start fortifying your application');
 
+
         $this->comment(PHP_EOL."
+ ************************************************************
   ______ _     _ _______  ______ ______  _____ _______ __   _
  |  ____ |     | |_____| |_____/ |     \   |   |_____| | \  |
  |_____| |_____| |     | |    \_ |_____/ __|__ |     | |  \_|
+ *************************************************************
                                                             ".PHP_EOL.PHP_EOL);
 
         $this->withProgressBar(7, function ($bar) {
             $bar->start();
 
             $this->callSilent('vendor:publish', [
-                '--tag' => 'guardian-config',
+                '--provider' => 'DesignByCode\Guardian\GuardianServiceProvider',
                 '--force' => true,
             ]);
 
