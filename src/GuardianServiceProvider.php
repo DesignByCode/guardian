@@ -6,7 +6,6 @@ use DesignByCode\Guardian\Commands\GuardianCommand;
 use DesignByCode\Guardian\Http\Controllers\AvatarController;
 use DesignByCode\Guardian\Http\Controllers\DashboardController;
 use DesignByCode\Guardian\Http\Controllers\DeleteAccountController;
-use DesignByCode\Guardian\Http\Controllers\MarkdownController;
 use DesignByCode\Guardian\Http\Controllers\ProfileController;
 use DesignByCode\Guardian\Http\View\Components\Layout;
 use Illuminate\Support\Facades\Blade;

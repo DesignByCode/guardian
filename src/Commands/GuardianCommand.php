@@ -26,7 +26,7 @@ class GuardianCommand extends Command
             $bar->start();
 
             $this->callSilent('vendor:publish', [
-                '--tag' => 'guardian-config',
+                '--provider' => 'DesignByCode\Guardian\GuardianServiceProvider',
                 '--force' => true,
             ]);
 
@@ -37,7 +37,6 @@ class GuardianCommand extends Command
 
             $this->callSilent('vendor:publish', [
                 '--provider' => 'Spatie\MediaLibrary\MediaLibraryServiceProvider',
-                '--force' => true,
             ]);
 
             $this->callSilent('storage:link');

@@ -17,7 +17,7 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
     use Notifiable;
     use TwoFactorAuthenticatable;
     use Avatar;
-    
+
     /**
      * The attributes that are mass assignable.
      *

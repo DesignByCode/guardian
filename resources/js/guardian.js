@@ -19,8 +19,6 @@ require('alpinejs')
 
 
 
-
-
 const previewInput = document.getElementById('avatar-input')
 
 let previewBlock = document.getElementById('imagePreview')
