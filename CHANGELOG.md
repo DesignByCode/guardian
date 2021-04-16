@@ -2,6 +2,11 @@
 
 All notable changes to `guardian` will be documented in this file.
 
+## 1.2.0 - 2021-16-04
+- publish css file as part of the installation command.
+- fix force publish for laravel-medialibrary migrations
+
+
 ## 1.2.0 - 2021-29-03
 - upload avatar using [stapie/laravel-medialibrary](https://github.com/spatie/laravel-medialibrary)
 - Update User model to work with media library.  
