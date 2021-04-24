@@ -5,7 +5,7 @@
             <img src="{{$user->avatar}}" alt="{{ $user->name }} avatar">
         </div>
         @if($user->haveAvatar() && ($delete ?? false))
-            <a class="avatar__delete" onclick="event.preventDefault(); document.getElementById('delete-avatar-form').submit()" href="">
+            <a class="avatar__delete" onclick="event.preventDefault(); document.getElementById('delete-avatar-form-{{ $uniqueId }}').submit()" href="#">
                 <svg class="avatar__delete__icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10
                 18a8
                 8 0 100-16 8 8 0
@@ -20,7 +20,7 @@
         <div class="avatar__email ellipsis">{{ $user->email }}</div>
     </div>
 
-    <form id="delete-avatar-form" style="display: none" action="{{ route('guardian.avatar.destroy') }}" method="post">
+    <form id="delete-avatar-form-{{ $uniqueId }}" style="display: none" action="{{ route('guardian.avatar.destroy') }}" method="post">
         @csrf
         @method('DELETE')
     </form>

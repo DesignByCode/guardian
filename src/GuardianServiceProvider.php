@@ -30,6 +30,7 @@ class GuardianServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', self::GUARDIAN);
         $this->registerViewComponent();
         $this->registerComponents();
 
@@ -131,7 +132,6 @@ class GuardianServiceProvider extends ServiceProvider
             'form-verify-email',
             'sidebar-nav',
             'sidebar-nav-button',
-            'top-nav',
         ];
 
         $this->callAfterResolving(BladeCompiler::class, function () use ($components) {

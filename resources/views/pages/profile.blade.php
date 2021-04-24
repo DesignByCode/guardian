@@ -3,15 +3,15 @@
         <div class="row">
             <div class="md-col-12">
                 <h1 class="m-0">Profile</h1>
-                <x-guardian-avatar  :user="auth()->user()" size="100"></x-guardian-avatar>
+                <x-guardian-avatar uniqueId="profile-page" :user="auth()->user()" size="200" delete></x-guardian-avatar>
             </div>
         </div>
         @if( config('guardian.features.enable-profile-update'))
             <div class="row">
                 <div class="lg-col-6">
-                    <h2>Update User Information</h2>
+                    <h2>{{ __('guardian::profile.update-user') }}</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci asperiores commodi consequatur.
+                        {{ __('guardian::profile.update-user-description') }}
                     </p>
                 </div>
                 <div class="lg-col-6">
@@ -27,9 +27,9 @@
         @if( config('guardian.features.enable-profile-update'))
             <div class="row">
                 <div class="lg-col-6">
-                    <h2>Upload Avatar</h2>
+                    <h2>{{ __('guardian::profile.upload-avatar-title') }}</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci asperiores commodi consequatur.
+                        {{ __('guardian::profile.upload-avatar-description') }}
                     </p>
                 </div>
                 <div class="lg-col-6">
@@ -45,15 +45,15 @@
         @if( config('guardian.features.enable-password-update'))
             <div class="row">
                 <div class="lg-col-6">
-                    <h2>Update Password</h2>
+                    <h2>{{__('guardian::profile.update-password-title')}}</h2>
                     <ul>
-                        <li>At least 8 characters—the more characters, the better</li>
-                        <li>A mixture of both uppercase and lowercase letters</li>
-                        <li>A mixture of letters and numbers</li>
-                        <li>Inclusion of at least one special character, e.g., ! @ # ? ]</li>
+                        <li>{{ __('guardian::profile.password-8-characters') }}</li>
+                        <li>{{ __('guardian::profile.password-uppercase-lowercase-letters') }}</li>
+                        <li>{{ __('guardian::profile.password-mixture-letters-numbers') }}</li>
+                        <li>{{ __('guardian::profile.password-one-special-character') }}</li>
                     </ul>
                     <div class="bg--default-light p-4 border--default r-5">
-                        <strong>Note:</strong> do not use < or > in your password, as both can cause problems in Web browsers
+                        {{ __('guardian::profile.password-update-password-note') }}
                     </div>
 
                 </div>
@@ -70,10 +70,9 @@
         @if( config('guardian.features.enable-two-factor-authentication'))
             <div class="row">
                 <div class="lg-col-6">
-                    <h2>Two Factor Authentication</h2>
+                    <h2>{{__('guardian::profile.two-factor-authentication')}}</h2>
                     <p>
-                        Two-factor authentication is an electronic authentication method in which a device user is granted access to a website or application
-                        only after successfully presenting two or more pieces of evidence (or factors) to an authentication mechanism.
+                        {{ __('guardian::profile.two-factor-description') }}
                     </p>
                 </div>
                 <div class="lg-col-6">
@@ -90,7 +89,7 @@
         @if( config('guardian.features.enable-delete-own-account'))
             <div class="row">
                 <div class="lg-col-6">
-                    <h2>Danger Zone</h2>
+                    <h2>{{__('guardian::profile.danger-zone')}}</h2>
                 </div>
                 <div class="lg-col-6">
                     <x-guardian-form-delete-account></x-guardian-form-delete-account>

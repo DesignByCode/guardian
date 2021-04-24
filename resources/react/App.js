@@ -16,7 +16,6 @@ const App = () => {
                 <Route exact path="dashboard/about" render={() => 'about'}/>
                 <Route exact path="dashboard/contact" render={() => 'contact'}/>
                 <Route exact path="dashboard/test" render={() => 'test'}/>
-
             </Switch>
 
 

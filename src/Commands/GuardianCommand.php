@@ -3,6 +3,7 @@
 namespace DesignByCode\Guardian\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
 class GuardianCommand extends Command
@@ -22,7 +23,7 @@ class GuardianCommand extends Command
  |_____| |_____| |     | |    \_ |_____/ __|__ |     | |  \_|
                                                             ".PHP_EOL.PHP_EOL);
 
-        $this->withProgressBar(7, function ($bar) {
+        $this->withProgressBar(8, function ($bar) {
             $bar->start();
 
             $this->callSilent('vendor:publish', [
@@ -34,6 +35,7 @@ class GuardianCommand extends Command
                 '--provider' => 'Laravel\Fortify\FortifyServiceProvider',
                 '--force' => true,
             ]);
+
 
             $this->callSilent('vendor:publish', [
                 '--provider' => 'Spatie\MediaLibrary\MediaLibraryServiceProvider',
@@ -79,8 +81,19 @@ class GuardianCommand extends Command
                 FILE_APPEND
             );
 
+            $bar->advance();
+            sleep(1);
+
+            File::deleteDirectory(resource_path('lang'));
+            File::copyDirectory(__DIR__ . '/../../resources/lang', resource_path('lang'));
+
             $bar->finish();
         });
+
+
+
+
+
 
 
         $this->line("");

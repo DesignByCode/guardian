@@ -10,7 +10,7 @@
             <small class="text--danger">{{ $message }}</small>
             @enderror
         </div>
-        <div class="p-4 mb-4 border--default bg--default-light">
+        <div class="p-4 mb-4">
             <img class="avatar__upload__preview" id="imagePreview" alt="preview">
         </div>
         <button type="submit"  class="button btn btn--primary">Upload</button>

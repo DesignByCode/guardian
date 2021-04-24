@@ -1,7 +1,7 @@
 <nav class="sidebar-nav pt-7">
     <div class="sidebar--sticky">
         <div class="top">
-            <x-guardian-avatar :user="auth()->user()" delete></x-guardian-avatar>
+            <x-guardian-avatar :user="auth()->user()" uniqueId="sidebar" delete></x-guardian-avatar>
 
             <ul class="nav-links m-4">
                 <x-guardian-sidebar-nav-button href="{{ route('guardian.dashboard') }}">

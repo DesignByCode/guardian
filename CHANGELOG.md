@@ -2,17 +2,28 @@
 
 All notable changes to `guardian` will be documented in this file.
 
+
+## 1.2.1 - 2021-21-04
+- Removed unused top-nav component
+- Removed unused migration
+- Fixed avatar component unique id for removing image.
+  - Added prop name to sidebar avatar [uniqueId]
+  - Added prop name to profile page avatar [uniqueId]
+- Added styles prop to dashboard layout for adding custom styles
+- Added translation files
+- Added lang files for profile page and status codes
+
 ## 1.2.0 - 2021-16-04
-- publish css file as part of the installation command.
-- fix force publish for laravel-medialibrary migrations
+- Publish css file as part of the installation command.
+- Fix force publish for laravel-medialibrary migrations
 
 
 ## 1.2.0 - 2021-29-03
-- upload avatar using [stapie/laravel-medialibrary](https://github.com/spatie/laravel-medialibrary)
+- Upload avatar using [stapie/laravel-medialibrary](https://github.com/spatie/laravel-medialibrary)
 - Update User model to work with media library.  
-- updated config file
-- rename AvatarTrait to Avatar
-- updated the ```guardian:install``` command handle zero configuration setup.
+- Updated config file
+- Rename AvatarTrait to Avatar
+- Updated the ```guardian:install``` command handle zero configuration setup.
 
 ## 1.1.0 - 2021-28-03 
 - Added support for gravatar and ui-avatars
@@ -25,4 +36,4 @@ All notable changes to `guardian` will be documented in this file.
 - Automatically uncomment email verification in fortify config file. 
 
 ## 1.0.0 - 2021-22-03
-- initial release
+- Initial release
