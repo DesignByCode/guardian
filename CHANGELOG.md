@@ -2,8 +2,10 @@
 
 All notable changes to `guardian` will be documented in this file.
 
+## 1.4.1 - 2021-25-04
+- javascript event listener bug fix
 
-## 1.2.1 - 2021-21-04
+## 1.4.0 - 2021-21-04
 - Removed unused top-nav component
 - Removed unused migration
 - Fixed avatar component unique id for removing image.
@@ -13,7 +15,7 @@ All notable changes to `guardian` will be documented in this file.
 - Added translation files
 - Added lang files for profile page and status codes
 
-## 1.2.0 - 2021-16-04
+## 1.3.0 - 2021-16-04
 - Publish css file as part of the installation command.
 - Fix force publish for laravel-medialibrary migrations
 

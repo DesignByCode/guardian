@@ -25,8 +25,9 @@ function previewAvatar(e) {
     previewBlock.style.display = 'block'
     previewBlock.src = URL.createObjectURL(e.target.files[0])
 }
-
-previewInput.addEventListener('change', previewAvatar)
+if (previewInput && previewBlock) {
+    previewInput.addEventListener('change', previewAvatar)
+}
 
 
 

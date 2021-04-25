@@ -7,6 +7,9 @@ mix
     .js('./resources/js/guardian.js', './public/js')
     .react()
     .options({
+        terser: {
+            extractComments: false,
+        },
         postCss: [
             require('postcss-discard-duplicates'),
             purgecss({
