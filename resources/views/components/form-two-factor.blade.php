@@ -13,7 +13,7 @@
                 {{ __('guardian::profile.two-factor-not-enabled') }}
             </h4>
             <p>
-                {{__('guardian.profile.two-factor-authentication-is-enabled')}}
+                {{__('guardian::profile.two-factor-authentication-is-enabled')}}
             </p>
         @endif
 

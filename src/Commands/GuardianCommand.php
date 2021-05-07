@@ -39,6 +39,7 @@ class GuardianCommand extends Command
 
             $this->callSilent('vendor:publish', [
                 '--provider' => 'Spatie\MediaLibrary\MediaLibraryServiceProvider',
+                '--force' => true,
             ]);
 
             $this->callSilent('storage:link');
@@ -84,8 +85,8 @@ class GuardianCommand extends Command
             $bar->advance();
             sleep(1);
 
-            File::deleteDirectory(resource_path('lang'));
-            File::copyDirectory(__DIR__ . '/../../resources/lang', resource_path('lang'));
+            copy(__DIR__ . '/../../resources/lang/en/profile.php', resource_path('lang/en/profile.php'));
+            copy(__DIR__ . '/../../resources/lang/en/status.php', resource_path('lang/en/status.php'));
 
             $bar->finish();
         });

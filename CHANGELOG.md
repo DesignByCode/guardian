@@ -2,6 +2,11 @@
 
 All notable changes to `guardian` will be documented in this file.
 
+## 1.4.2 - 2021-07-40
+- copy lang files instead of lang directory during installation
+- bug fix in resources/views/components/form-two-factor.blade.php
+- bug fix in src/Commands/GuardianCommand.php
+
 ## 1.4.1 - 2021-25-04
 - javascript event listener bug fix
 
