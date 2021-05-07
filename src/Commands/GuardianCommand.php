@@ -3,7 +3,6 @@
 namespace DesignByCode\Guardian\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
 class GuardianCommand extends Command
